@@ -6,38 +6,27 @@
 /*   By: atep <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 14:19:28 by atep              #+#    #+#             */
-/*   Updated: 2018/12/18 14:39:10 by atep             ###   ########.fr       */
+/*   Updated: 2018/12/19 16:58:26 by atep             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char    **ft_read_fd(int *line, int *col, char *tab)
+char    *ft_read_fd(const int fd)
 {
-	char        buf;
-	int         count;
-	int         i;
-	int         j;
+	char *tab;
 
-	i = 0;
-	j = 0;
-	count = 1;
-	while (read(STDIN_FILENO, &buf, count))
+	while (read(fd, &buf, BUFF_SIZE))
 	{
-		tab = ft_strdupcat(tab, buf);
-		if (buf != '\n')
-			i++;
-		else
-			j++;
+		if (!(tab = ft_strdupcat(tab, buf)))
+				return (NULL);
+		if (buf = '\n')
+			return(tab);
 	}
-	*col = i / j;
-	*line = j;
-	return (tab);
+	return (1);
 }
 
-int		ft_strlen
-
-char	*ft_strdupcat(char *str, char buf)
+char		*ft_strdupcat(char *str, char buf)
 {
 	int		i;
 	int		len_str;
@@ -45,7 +34,7 @@ char	*ft_strdupcat(char *str, char buf)
 
 	len_str = ft_strlen(str);
 	i = 0;
-	if (!(cpy = (char*)malloc(sizeof(char) * len_str + 2)))
+	if (!(cpy = (char*)malloc(sizeof(char) * len_str + 2))) //sizeof BUFF_SIZE
 		return (NULL);
 	while (i < len_str)
 	{
@@ -55,17 +44,23 @@ char	*ft_strdupcat(char *str, char buf)
 	cpy[i] = buf;
 	cpy[i + 1] = '\0';
 	str = cpy;
-	free(cpy);
 	return (str);
 }
 
 int		get_next_line(const int fd, char **line)
 {
-	int		i;
-	int 	j;
-	char	*tab;
-	if (ft_read_fd == tab)
-	{
-		tab = (char *)malloc(sizeof(char) *
+	static char *str;
+	int 		i;
+
+	i = 0;
+	while (str = ft_read_fd(fd))
+	{	
+		line[i] = str;;
+		i++;
+		return (1);
+	if (ft_read_fd(fd) = 1)
+		return (0);
+	if (!(ft_read_fd(fd)))
+		return (-1);
 	}
 }
