@@ -1,33 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   get_next_line_2.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: atep <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/19 14:49:57 by atep              #+#    #+#             */
-/*   Updated: 2019/02/26 16:06:09 by atep             ###   ########.fr       */
+/*   Created: 2019/02/26 16:14:02 by atep              #+#    #+#             */
+/*   Updated: 2019/02/26 16:16:56 by atep             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
+#include "get_next_line.h"
 
-# define GET_NEXT_LINE_H
-# define BUFF_SIZE  1
-# include <stdlib.h>
-# include <unistd.h>
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <fcntl.h>
-# include "libft/libft.h"
 
-typedef struct	s_tab
-{
-	char			*str;
-	int				fd;
-	struct s_tab	*next;
-}				t_tab;
-
-int				get_next_line(const int fd, char **line);
-
-#endif
